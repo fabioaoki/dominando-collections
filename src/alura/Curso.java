@@ -21,14 +21,21 @@ public class Curso {
 	public String getInstrutor() {
 		return instrutor;
 	}
+	
 
 	public List<Aula> getAulas() {
-		return aulas;
+		return Collections.unmodifiableList(aulas);
 	}
 	
 	public void adiciona (Aula aula) {
 		this.aulas.add(aula);
 	}
+	
+	public int getTempoTotal() {
+		return this.aulas.stream().mapToInt(Aula::getTempo).sum();
+	}
+	
+
 	
 	public List<Aula> geAulas() {
 		return Collections.unmodifiableList(aulas);
