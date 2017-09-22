@@ -32,9 +32,13 @@ public class Curso {
 	}
 	
 	public int getTempoTotal() {
-		return this.aulas.stream().mapToInt(Aula::getTempo).sum();
+		int tempoTotal = 0;
+		for(Aula aula: aulas){
+			tempoTotal += aula.getTempo();
+		}
+	return tempoTotal;
 	}
-	
+
 
 	
 	public List<Aula> geAulas() {
